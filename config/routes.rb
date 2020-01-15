@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # ここで参照先がtasksになるのはmodelを設定した時に自動的に設定されているということかな
+  root to: 'tasks#index'
+  
+  resources :tasks
 end
