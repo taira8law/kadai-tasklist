@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  # ここで参照先がtasksになるのはmodelを設定した時に自動的に設定されているということかな
-  root to: 'tasks#index'
+  get 'toppages/index'
+  get 'users/index'
+  get 'users/show'
+  get 'users/new'
+  get 'users/create'
+  root to: 'toppages#index'
   
+  get 'signup', to: 'users#new'
+  resources :users, only: [:index, :show, :new, :create]
   resources :tasks
 end
