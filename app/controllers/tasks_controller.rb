@@ -17,17 +17,15 @@ class TasksController < ApplicationController
     @task = Task.new
   end
   
-  #newとcreateの違いを確認
-  
   def create
     @task = current_user.tasks.build(task_params)
     if @task.save
-      flash[:success] = 'メッセージを投稿しました。'
+      flash[:success] = 'タスクを作成しました。'
       redirect_to root_url
     else
       @tasks = current_user.tasks.order(id: :desc).page(params[:page])
-      flash.now[:danger] = 'メッセージの投稿に失敗しました。'
-      render 'tasks/index'
+      flash.now[:danger] = 'タスクの作成に失敗しました。'
+      render :new
     end
   end
   

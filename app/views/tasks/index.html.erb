@@ -1,17 +1,9 @@
 <% if logged_in? %>
   <div class="row">
-      <%= form_with(model: @task, local: true) do |f| %>
-        <div class="form-group">
-          <%= f.label :content, 'タスク' %>
-          <%= f.text_field :content, class: 'form-control'%>
-          <%= f.label :status, 'ステータス' %>
-          <%= f.text_field :status, class: 'form-control'%>
-        </div>
-        <%= f.submit 'Create', class: 'btn btn-primary btn-block' %>
-      <% end %>
     <div class="col-sm-8">
       <%= render 'tasks/tasks', tasks: @tasks %>
     </div>
+    <%= link_to 'Create New Task', new_task_path %></li>
     <%= link_to 'Logout', logout_path, method: :delete %></li>
   </div>
 <% else %>
