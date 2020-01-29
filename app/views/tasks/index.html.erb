@@ -1,11 +1,7 @@
 <% if logged_in? %>
-  <div class="row">
-    <div class="col-sm-8">
-      <%= render 'tasks/tasks', tasks: @tasks %>
-    </div>
-    <%= link_to 'Create New Task', new_task_path %></li>
-    <%= link_to 'Logout', logout_path, method: :delete %></li>
-  </div>
+  <%= render 'tasks/tasks', tasks: @tasks %>
+  <%= link_to 'Create New Task', new_task_path %>
+  <%= link_to 'Logout', logout_path, method: :delete %>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">
@@ -22,9 +18,9 @@
           <%= f.password_field :password, class: 'form-control' %>
         </div>
 
-        <%= f.submit 'Log in', class: 'btn btn-primary btn-block' %>
+        <%= f.submit 'Log in' %>
       <% end %>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to 'Sign up now!', signup_path %>
     </div>
   </div>
 <% end %>
